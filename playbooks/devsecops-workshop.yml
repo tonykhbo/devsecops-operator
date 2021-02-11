@@ -26,7 +26,7 @@
       register: cluster_apps_domain
 
     - set_fact:
-        apps_domain: "{{ (cluster_dns.resources|first).spec.domain }}"
+        apps_domain: "{{ (cluster_apps_domain.resources|first).spec.domain }}"
 
     - name: Get registry pull secret
       k8s_info:
