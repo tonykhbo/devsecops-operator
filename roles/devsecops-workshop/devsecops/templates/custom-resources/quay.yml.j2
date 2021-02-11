@@ -10,7 +10,7 @@ spec:
   quay:
     keepConfigDeployment: true
     externalAccess:
-      hostname: quay.apps.{{ full_cluster_name }}
+      hostname: quay.{{ cluster_router}}
       tls:
         termination: edge
       type: Route

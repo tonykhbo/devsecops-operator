@@ -16,7 +16,7 @@ common_included: yes
 #   throughout all the various roles
 _tmp_parent: '{{ "/".join([ playbook_dir, "../tmp" ])|realpath }}'
 full_cluster_name: '{{ ".".join([ cluster_name, openshift_base_domain ]) }}'
-cluster_router: '{{ ".".join([ "apps", full_cluster_name ]) }}'
+cluster_router: '{{ apps_domain }}'
 tmp_dir: '{{ "/".join([ _tmp_parent, full_cluster_name ]) }}'
 ################################################################################
 

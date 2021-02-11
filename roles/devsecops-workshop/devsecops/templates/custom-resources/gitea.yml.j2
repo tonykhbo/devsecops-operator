@@ -8,7 +8,7 @@ spec:
     expose:
       kind: Route
       ssl: true
-      uri: gitea-server-{{ devsecops_namespace }}.apps.{{ full_cluster_name }}
+      uri: gitea-server-{{ devsecops_namespace }}.{{ cluster_router}}
     volumeSize: 4Gi
   persistent: true
   postgresql:
