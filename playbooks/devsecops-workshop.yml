@@ -17,7 +17,7 @@
     - set_fact:
         openshift_base_domain: "{{ (cluster_dns.resources|first).spec.baseDomain.replace(cluster_name + '.','') }}"
 
-    - name: Get cluster dns
+    - name: Get apps_domain from Ingress resource
       k8s_info:
         api_version: config.openshift.io/v1
         kind: Ingress
@@ -27,15 +27,6 @@
 
     - set_fact:
         apps_domain: "{{ (cluster_dns.resources|first).spec.domain }}"
-
-    tasks:
-    - name: Get cluster dns
-      k8s_info:
-        api_version: config.openshift.io/v1
-        kind: DNS
-        namespace: openshift-config
-        name: cluster
-      register: cluster_dns
 
     - name: Get registry pull secret
       k8s_info:
